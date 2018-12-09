@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>ELEN 215 Final Project></title>
+  <style>
+  body{
+  background color: black;
+  }
+  H2{
+  color: green;
+  }
+  p {
+  color: green;
+  }
+  </style>
+</head>
+<body>
+  <H2><center>LDR Xbee Sensor Network</center></H2>
+  <The objective of this project was to create a wireless XBee network that would read data from various sensors and post that data on a webserver. this data could then be 
+  used to control different systems.  originally I wanted to create a irrigation system where soil moisture would be analyzed and water dispersed 
+  accordingly, although currently it only reads light levels in terms of Lux, I could replace the LDR with a moisture sensor.</p>
+  <p>Click 
+ <a href="https://thingspeak.com/channels/633436/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Light+levels&type=spline">Here</a> 
+ To go To my Thingspeak Graph. A LDR voltage reading is taken every 20 seconds and output as a Lux reading, which is then transmitted to both my thingspeak channel and my 
+ webserver</p>
+ 
+</body>
+</html>
