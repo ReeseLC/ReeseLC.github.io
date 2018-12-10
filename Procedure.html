@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>ELEN 215 Final Project></title>
+  <style>
+  body{
+  background-color: tan;
+  }
+  H2{
+  color: green;
+  }
+  H4{color: green;}
+  H5{color: gold;
+  }
+  p {
+  color: green;}
+  ol {color: green;}
+  </style>
+</head>
+<body>
+  <H2><center>LDR Xbee Sensor Network</center></H2>
+  <H4><center>Procedure</center></H4>
+  <p><a href="final_project.html"><center>Home</center></a>
+  <a href="Procedure.html"><center>Procedure</center></a>
+  <a href="Conclusion.html"><center>Conclusion</center></a></p>
+  <ol>
+  <li>  The first step I took was to make sure the XBee devices were connected and transmitting data wirelessly.
+    I used the CXTU configuration tool to connect them by setting them to send to the others MAC and
+    by giving them the same PAN ID number.  I also set one XBee as a Coordinator and the other as a router with this tool.
+  </li>
+  <br/>
+  <li>
+  Next I connected the LDR sensor in series with a resistor to create a voltage divider capable of reading how much voltage
+  is being dropped on the LDR, Then connecting this with the XBee Coordinator. This allows me to see how much light the LDR is getting. Connect VCC (pin 2 on the adapter board)
+  with the power rail and VSS (pin 12) with the ground rail of the breadboard. The LDR and 10k resistor connect in series
+  between the power and ground rails with a jumper connecting the middle of the voltage divider with IO1 (pin 22).
+  </li>
+  <br/>
+  <li>
+    Wiring of the XBee Coordinator to the arduino came next. 3.3V on the Arduino to the power rail and GND to the ground rail on the breadboard.
+    VCC (Pin 2) of XBee adapter to power rail and VSS (Pin 11) to the ground rail. Dout (Pin 3) and Din (Pin 4) connect to pin 2 and 3 of the Arduino respectively.
+    I also set up the LED for the webserver control portion. Pin 4 of the arduino to the LED and resistor, to ground.
+  </li>
+  <br/>
+  <li>
+    The next step is coding the Arduino which involves a lot of trial and error runs but essentially the code runs through a loop that calls different functions to perform tasks. after
+    <ul>
+      <li>
+        The first function is the Setup which which calls the startEthernet function. this function connects the Arduino to the network using DHCP. The setup loop also sets pins 4, 7 and 9 as outputs.
+      </li>
+      <br/>
+      <li>
+        Next is the main loop. It repeatedly calls 3 different functions.  getXbeeData, updateWebserver and updateThingspeak. These functions, naturally, do exactly what thier name suggests.
+        The main loop also holds a LED control that turns on the LED on if the Lux reading is less than 300.
+      </li>
+    </ul>
+  </li>
+  <br/>
+  <li>
+    after a lot of testing and crossed fingers, I have a working code.  It takes the data from the XBee and posts it to my webserver and Thingspeak.  The LED control also works, turning it on and off
+    from the webserver.
+  </li>
+  </ol>
+</body>
+</html>
